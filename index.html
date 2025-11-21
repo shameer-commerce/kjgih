@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE BAZZAR - Home</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4f30e8",
+              "background-light": "#f6f6f8",
+              "background-dark": "#141121",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(-45deg, #a8c0ff, #fbcfe8, #d8b4fe);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+    <div class="relative min-h-screen w-full overflow-hidden">
+        <!-- Animated Gradient Background -->
+        <div class="absolute inset-0 z-0 gradient-bg"></div>
+        
+        <!-- Header -->
+        <header class="relative z-10 flex justify-between items-center p-6">
+            <h1 class="text-2xl font-bold text-[#121118] dark:text-white">UAE BAZZAR</h1>
+            <button id="signOutButton" class="px-4 py-2 bg-primary text-white rounded-full font-medium hover:bg-opacity-90 transition-all">
+                Sign Out
+            </button>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="relative z-10 flex flex-col items-center justify-center px-4 py-12">
+            <div class="w-full max-w-4xl">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold text-[#121118] dark:text-white mb-4">
+                        Welcome to UAE BAZZAR
+                    </h1>
+                    <p class="text-xl text-[#6B7280] dark:text-gray-300 max-w-2xl mx-auto">
+                        Discover amazing products and deals tailored just for you.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="bg-white/25 dark:bg-black/25 backdrop-blur-lg rounded-2xl border border-white/30 p-6 shadow-xl">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mb-4"></div>
+                        <h3 class="text-xl font-bold text-[#121118] dark:text-white mb-2">Featured Products</h3>
+                        <p class="text-[#6B7280] dark:text-gray-300 mb-4">
+                            Explore our curated selection of top-quality items.
+                        </p>
+                        <button class="w-full py-2 bg-primary text-white rounded-full font-medium hover:bg-opacity-90 transition-all">
+                            Browse Now
+                        </button>
+                    </div>
+                    
+                    <!-- Product Card 2 -->
+                    <div class="bg-white/25 dark:bg-black/25 backdrop-blur-lg rounded-2xl border border-white/30 p-6 shadow-xl">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mb-4"></div>
+                        <h3 class="text-xl font-bold text-[#121118] dark:text-white mb-2">Special Deals</h3>
+                        <p class="text-[#6B7280] dark:text-gray-300 mb-4">
+                            Limited-time offers you won't want to miss.
+                        </p>
+                        <button class="w-full py-2 bg-primary text-white rounded-full font-medium hover:bg-opacity-90 transition-all">
+                            View Deals
+                        </button>
+                    </div>
+                    
+                    <!-- Product Card 3 -->
+                    <div class="bg-white/25 dark:bg-black/25 backdrop-blur-lg rounded-2xl border border-white/30 p-6 shadow-xl">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mb-4"></div>
+                        <h3 class="text-xl font-bold text-[#121118] dark:text-white mb-2">New Arrivals</h3>
+                        <p class="text-[#6B7280] dark:text-gray-300 mb-4">
+                            Check out the latest products we've added.
+                        </p>
+                        <button class="w-full py-2 bg-primary text-white rounded-full font-medium hover:bg-opacity-90 transition-all">
+                            See What's New
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrgosj2hRdEHg01kGcEiXaNEyfoNxHEtk",
+            authDomain: "luncherteam-93163.firebaseapp.com",
+            projectId: "luncherteam-93163",
+            storageBucket: "luncherteam-93163.firebasestorage.app",
+            messagingSenderId: "862413255598",
+            appId: "1:862413255598:web:b5e358a9d5f6f79b328e3f",
+            measurementId: "G-JKDYYKERW9"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        
+        // Check if user is authenticated
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // User is not signed in, redirect to sign-in page
+                window.location.href = "index-sign-in.html";
+            }
+        });
+        
+        // Sign out functionality
+        document.getElementById('signOutButton').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                // Sign-out successful
+                window.location.href = "index-sign-in.html";
+            }).catch((error) => {
+                // An error happened
+                console.error("Sign out error:", error);
+            });
+        });
+    </script>
+</body>
+</html>
